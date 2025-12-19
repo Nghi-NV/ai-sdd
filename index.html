@@ -713,6 +713,109 @@ AI sẽ:
           </div>
         </div>
       </div>
+
+      <!-- SDD Pitfalls -->
+      <div class="sdd-pitfalls animate-item">
+        <h3 class="subsection-title">⚠️ Sai lầm thường gặp khi làm SDD</h3>
+
+        <div class="pitfalls-grid">
+          <div class="pitfall-card">
+            <div class="pitfall-header">
+              <span class="pitfall-icon">❌</span>
+              <h4>Spec quá mơ hồ</h4>
+            </div>
+            <div class="pitfall-body">
+              <p class="pitfall-bad">"App quản lý công việc, có thể thêm/xóa task"</p>
+              <p class="pitfall-good">✅ "User có thể tạo task với title (bắt buộc), description (optional), due date.
+                Task có 3 trạng thái: todo, in-progress, done. Mỗi user tối đa 100 active tasks."</p>
+            </div>
+          </div>
+
+          <div class="pitfall-card">
+            <div class="pitfall-header">
+              <span class="pitfall-icon">❌</span>
+              <h4>Spec quá chi tiết về HOW</h4>
+            </div>
+            <div class="pitfall-body">
+              <p class="pitfall-bad">"Dùng useState để lưu list, dùng map để render, onClick gọi splice để xóa"</p>
+              <p class="pitfall-good">✅ Focus WHAT: "User có thể xóa task, sau khi xóa task biến mất khỏi list ngay lập
+                tức"</p>
+            </div>
+          </div>
+
+          <div class="pitfall-card">
+            <div class="pitfall-header">
+              <span class="pitfall-icon">❌</span>
+              <h4>Bỏ qua Constitution</h4>
+            </div>
+            <div class="pitfall-body">
+              <p class="pitfall-bad">Nhảy thẳng vào Specify mà không định nghĩa principles → AI generate code không
+                consistent</p>
+              <p class="pitfall-good">✅ Luôn chạy /speckit.constitution trước để định nghĩa coding standards, testing
+                requirements, naming conventions</p>
+            </div>
+          </div>
+
+          <div class="pitfall-card">
+            <div class="pitfall-header">
+              <span class="pitfall-icon">❌</span>
+              <h4>Không review Plan</h4>
+            </div>
+            <div class="pitfall-body">
+              <p class="pitfall-bad">Accept plan mà không đọc → AI chọn tech stack không phù hợp hoặc over-engineering
+              </p>
+              <p class="pitfall-good">✅ Review kỹ Plan, challenge các quyết định architecture, đảm bảo tech stack match
+                với team skills</p>
+            </div>
+          </div>
+
+          <div class="pitfall-card">
+            <div class="pitfall-header">
+              <span class="pitfall-icon">❌</span>
+              <h4>Tasks quá lớn</h4>
+            </div>
+            <div class="pitfall-body">
+              <p class="pitfall-bad">"Task 1: Implement entire authentication system"</p>
+              <p class="pitfall-good">✅ Chia nhỏ: "Task 1.1: Create User model", "Task 1.2: Implement login endpoint",
+                "Task 1.3: Add JWT middleware"...</p>
+            </div>
+          </div>
+
+          <div class="pitfall-card">
+            <div class="pitfall-header">
+              <span class="pitfall-icon">❌</span>
+              <h4>Không iterate Spec</h4>
+            </div>
+            <div class="pitfall-body">
+              <p class="pitfall-bad">Viết spec một lần rồi implement → Phát hiện gaps khi đã code xong</p>
+              <p class="pitfall-good">✅ Spec là living document. Update spec khi phát hiện edge cases, sau đó re-plan và
+                re-implement</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="pitfalls-summary">
+          <h4>💡 Nguyên tắc vàng của SDD</h4>
+          <div class="golden-rules">
+            <div class="rule">
+              <span class="rule-num">1</span>
+              <p><strong>WHAT > HOW:</strong> Spec mô tả behavior, không phải implementation</p>
+            </div>
+            <div class="rule">
+              <span class="rule-num">2</span>
+              <p><strong>Specific > Vague:</strong> Mỗi requirement phải testable và verifiable</p>
+            </div>
+            <div class="rule">
+              <span class="rule-num">3</span>
+              <p><strong>Small > Large:</strong> Chia nhỏ specs và tasks để AI dễ handle</p>
+            </div>
+            <div class="rule">
+              <span class="rule-num">4</span>
+              <p><strong>Iterate > Perfect:</strong> Spec không cần hoàn hảo từ đầu, nhưng cần update liên tục</p>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -930,6 +1033,258 @@ AI sẽ:
               <p>BMAD sẽ recommend track phù hợp dựa trên project goal của bạn</p>
             </div>
           </div>
+        </div>
+      </div>
+
+      <!-- 21 AI Agents -->
+      <div class="bmad-agents animate-item">
+        <h3 class="subsection-title">🤖 21 AI Agents Chuyên biệt</h3>
+        <p class="agents-intro">Mỗi agent có persona, expertise và responsibilities riêng biệt. Dưới đây là các agents
+          chính:</p>
+
+        <div class="agents-categories">
+          <div class="agent-category">
+            <h4>📊 Analysis & Strategy</h4>
+            <div class="agent-list">
+              <div class="agent-item">
+                <span class="agent-name">🎯 Analyst</span>
+                <p>Thu thập requirements, viết user stories, define acceptance criteria</p>
+              </div>
+              <div class="agent-item">
+                <span class="agent-name">🔬 Research Agent</span>
+                <p>Deep research về tech, competitors, market trends</p>
+              </div>
+              <div class="agent-item">
+                <span class="agent-name">💡 Brainstorm Buddy</span>
+                <p>Ideation, creative solutions, alternative approaches</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="agent-category">
+            <h4>📝 Planning & Design</h4>
+            <div class="agent-list">
+              <div class="agent-item">
+                <span class="agent-name">📋 Product Manager</span>
+                <p>Viết PRD, prioritize features, manage roadmap</p>
+              </div>
+              <div class="agent-item">
+                <span class="agent-name">🏛️ Architect</span>
+                <p>System design, tech decisions, scalability planning</p>
+              </div>
+              <div class="agent-item">
+                <span class="agent-name">🎨 UX Designer</span>
+                <p>User flows, wireframes, interaction patterns</p>
+              </div>
+              <div class="agent-item">
+                <span class="agent-name">🔐 Security Expert</span>
+                <p>Security review, threat modeling, best practices</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="agent-category">
+            <h4>⚡ Implementation</h4>
+            <div class="agent-list">
+              <div class="agent-item">
+                <span class="agent-name">💻 Full-Stack Dev</span>
+                <p>Implement features, code review, refactoring</p>
+              </div>
+              <div class="agent-item">
+                <span class="agent-name">🧪 Test Architect</span>
+                <p>Test strategy, unit/integration/e2e tests</p>
+              </div>
+              <div class="agent-item">
+                <span class="agent-name">🚀 DevOps</span>
+                <p>CI/CD, deployment, infrastructure</p>
+              </div>
+              <div class="agent-item">
+                <span class="agent-name">📖 Doc Writer</span>
+                <p>API docs, README, user guides</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Workflow Tracks -->
+      <div class="bmad-tracks animate-item">
+        <h3 class="subsection-title">🛤️ Workflow Tracks</h3>
+        <p class="tracks-intro">BMAD tự động recommend track phù hợp dựa trên scope và complexity của project:</p>
+
+        <div class="tracks-grid">
+          <div class="track-card track-quick">
+            <div class="track-header">
+              <span class="track-icon">⚡</span>
+              <h4>Quick Track</h4>
+              <span class="track-time">~30 phút</span>
+            </div>
+            <div class="track-body">
+              <p><strong>Use case:</strong> Bug fix, small feature, refactoring</p>
+              <ul>
+                <li>Skip Analysis & Planning phases</li>
+                <li>Jump straight to implementation</li>
+                <li>Minimal documentation</li>
+              </ul>
+              <div class="track-example">
+                <code>*quick-start Fix login button not working</code>
+              </div>
+            </div>
+          </div>
+
+          <div class="track-card track-standard">
+            <div class="track-header">
+              <span class="track-icon">📋</span>
+              <h4>Standard Track</h4>
+              <span class="track-time">~2-4 giờ</span>
+            </div>
+            <div class="track-body">
+              <p><strong>Use case:</strong> New feature, module, integration</p>
+              <ul>
+                <li>Full Planning phase</li>
+                <li>PRD + Tech Specs</li>
+                <li>Story-driven implementation</li>
+              </ul>
+              <div class="track-example">
+                <code>*standard-start Add user authentication</code>
+              </div>
+            </div>
+          </div>
+
+          <div class="track-card track-full">
+            <div class="track-header">
+              <span class="track-icon">🏗️</span>
+              <h4>Full Track</h4>
+              <span class="track-time">~1-2 ngày</span>
+            </div>
+            <div class="track-body">
+              <p><strong>Use case:</strong> New project, major redesign, complex system</p>
+              <ul>
+                <li>All 4 phases complete</li>
+                <li>Deep analysis & research</li>
+                <li>Full documentation suite</li>
+              </ul>
+              <div class="track-example">
+                <code>*full-start Build e-commerce platform</code>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Key Commands -->
+      <div class="bmad-commands animate-item">
+        <h3 class="subsection-title">⌨️ Key Commands</h3>
+
+        <div class="commands-grid">
+          <div class="command-section">
+            <h4>🔄 Workflow Commands</h4>
+            <div class="command-list">
+              <div class="command-item">
+                <code>*workflow-init</code>
+                <p>Khởi tạo workflow, phân tích project và recommend track</p>
+              </div>
+              <div class="command-item">
+                <code>*yolo</code>
+                <p>Auto-approve tất cả decisions và continue workflow (use with caution!)</p>
+              </div>
+              <div class="command-item">
+                <code>*pause</code>
+                <p>Tạm dừng workflow để review hoặc modify</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="command-section">
+            <h4>📋 Story Commands</h4>
+            <div class="command-list">
+              <div class="command-item">
+                <code>*story next</code>
+                <p>Lấy story tiếp theo từ backlog để implement</p>
+              </div>
+              <div class="command-item">
+                <code>*story done</code>
+                <p>Đánh dấu story hiện tại hoàn thành</p>
+              </div>
+              <div class="command-item">
+                <code>*story status</code>
+                <p>Xem trạng thái tất cả stories trong sprint</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="command-section">
+            <h4>🔧 Agent Commands</h4>
+            <div class="command-list">
+              <div class="command-item">
+                <code>*agent architect</code>
+                <p>Gọi Architect agent để review/design architecture</p>
+              </div>
+              <div class="command-item">
+                <code>*agent test</code>
+                <p>Gọi Test Architect để viết/review tests</p>
+              </div>
+              <div class="command-item">
+                <code>*agent security</code>
+                <p>Gọi Security Expert để audit code</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- BMAD vs SDD -->
+      <div class="bmad-comparison animate-item">
+        <h3 class="subsection-title">⚖️ BMAD vs SDD (Spec-Kit) - Khi nào dùng?</h3>
+
+        <div class="comparison-table">
+          <div class="comparison-header">
+            <div class="comp-col"></div>
+            <div class="comp-col comp-bmad">🔧 BMAD Method</div>
+            <div class="comp-col comp-sdd">🌱 Spec-Kit (SDD)</div>
+          </div>
+
+          <div class="comparison-row">
+            <div class="comp-label">Complexity</div>
+            <div class="comp-cell">High - 21 agents, 4 phases</div>
+            <div class="comp-cell">Low - 6 simple steps</div>
+          </div>
+
+          <div class="comparison-row">
+            <div class="comp-label">Best for</div>
+            <div class="comp-cell">Enterprise, team projects, complex systems</div>
+            <div class="comp-cell">Solo dev, prototypes, clear-scope features</div>
+          </div>
+
+          <div class="comparison-row">
+            <div class="comp-label">Learning curve</div>
+            <div class="comp-cell">Steep - nhiều concepts và agents</div>
+            <div class="comp-cell">Gentle - intuitive workflow</div>
+          </div>
+
+          <div class="comparison-row">
+            <div class="comp-label">Documentation output</div>
+            <div class="comp-cell">Full suite: PRD, Tech Specs, Design Docs, Tests</div>
+            <div class="comp-cell">Focused: Spec + Plan + Tasks</div>
+          </div>
+
+          <div class="comparison-row">
+            <div class="comp-label">Flexibility</div>
+            <div class="comp-cell">Multiple tracks, skip phases, call specific agents</div>
+            <div class="comp-cell">Linear workflow, step-by-step</div>
+          </div>
+
+          <div class="comparison-row highlight-row">
+            <div class="comp-label">🎯 Recommendation</div>
+            <div class="comp-cell">Dùng khi cần structure chặt chẽ, nhiều stakeholders, hoặc project dài hạn</div>
+            <div class="comp-cell">Dùng khi cần deliver nhanh, scope rõ ràng, hoặc mới bắt đầu với AI development</div>
+          </div>
+        </div>
+
+        <div class="comparison-tip">
+          <span class="tip-icon">💡</span>
+          <p><strong>Pro tip:</strong> Có thể kết hợp cả hai! Dùng Spec-Kit để viết spec nhanh, rồi import vào BMAD để
+            execute với đầy đủ agents và validation.</p>
         </div>
       </div>
     </div>

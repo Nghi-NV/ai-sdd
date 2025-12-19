@@ -24,7 +24,8 @@ mermaid.initialize({
     padding: 30,
     nodeSpacing: 60,
     rankSpacing: 80,
-    htmlLabels: true
+    htmlLabels: true,
+    useMaxWidth: true
   }
 })
 
@@ -333,30 +334,94 @@ function initZoomModal() {
   document.querySelectorAll('.workflow-diagram[data-zoomable]').forEach(diagram => {
     diagram.addEventListener('click', async () => {
       const mermaidEl = diagram.querySelector('.mermaid')
-      if (!mermaidEl) return
+      if (!mermaidEl || !mermaidEl.id) return
 
       // Use horizontal diagrams for zoom modal
       const definition = zoomDiagramDefinitions[mermaidEl.id]
-      if (!definition) return
+      if (!definition) {
+        console.warn(`No zoom definition found for: ${mermaidEl.id}`)
+        return
+      }
 
-      // Show modal first so we can measure dimensions
+      // Show modal first with loading state
       modal.classList.add('active')
       document.body.style.overflow = 'hidden'
+      modalContent.innerHTML = '<div style="display: flex; align-items: center; justify-content: center; height: 100%; color: #94a3b8;"><p>Đang tải sơ đồ...</p></div>'
 
       try {
+        // Generate unique ID for this render
         const uniqueId = `zoom-${mermaidEl.id}-${Date.now()}`
+        
+        // Render the diagram
         const { svg } = await mermaid.render(uniqueId, definition.trim())
-        modalContent.innerHTML = `<div class="mermaid">${svg}</div>`
+        
+        // Insert SVG directly into modal content
+        modalContent.innerHTML = svg
 
-        // Remove any inline styles from Mermaid to allow CSS to control sizing
+        // Wait for next frame to ensure DOM is updated
+        await new Promise(resolve => requestAnimationFrame(resolve))
+
+        // Get the SVG element (should be direct child now)
         const svgElement = modalContent.querySelector('svg')
-        if (svgElement) {
-          svgElement.removeAttribute('style')
-          // Ensure width/height attributes don't conflict, although 100% !important in CSS overrides them
+        if (!svgElement) {
+          throw new Error('SVG element not found after render')
         }
+
+        // Get original dimensions
+        const originalWidth = svgElement.getAttribute('width')
+        const originalHeight = svgElement.getAttribute('height')
+        const existingViewBox = svgElement.getAttribute('viewBox')
+
+        // Ensure viewBox exists for proper scaling
+        if (!existingViewBox) {
+          if (originalWidth && originalHeight) {
+            const w = parseFloat(originalWidth)
+            const h = parseFloat(originalHeight)
+            svgElement.setAttribute('viewBox', `0 0 ${w} ${h}`)
+          } else {
+            // Fallback: try to get from computed style or use default
+            const computedWidth = svgElement.clientWidth || 800
+            const computedHeight = svgElement.clientHeight || 600
+            svgElement.setAttribute('viewBox', `0 0 ${computedWidth} ${computedHeight}`)
+          }
+        }
+
+        // Remove fixed width/height to allow responsive scaling
+        svgElement.removeAttribute('width')
+        svgElement.removeAttribute('height')
+        
+        // Remove any inline styles that might interfere
+        const inlineStyle = svgElement.getAttribute('style')
+        if (inlineStyle) {
+          // Keep only necessary styles, remove width/height
+          const cleanedStyle = inlineStyle
+            .split(';')
+            .filter(prop => !prop.includes('width') && !prop.includes('height'))
+            .join(';')
+          if (cleanedStyle.trim()) {
+            svgElement.setAttribute('style', cleanedStyle)
+          } else {
+            svgElement.removeAttribute('style')
+          }
+        }
+
+        // Set preserveAspectRatio for proper scaling
+        svgElement.setAttribute('preserveAspectRatio', 'xMidYMid meet')
+
+        // Add class for styling
+        svgElement.classList.add('zoom-svg')
+
+        // Force a reflow to ensure rendering
+        void svgElement.offsetHeight
+
       } catch (error) {
         console.error('Zoom render error:', error)
-        modalContent.innerHTML = '<p style="color: #f43f5e;">Unable to zoom diagram</p>'
+        modalContent.innerHTML = `
+          <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100%; color: #f43f5e; text-align: center; padding: 2rem;">
+            <p style="font-size: 1.25rem; margin-bottom: 0.5rem;">❌ Không thể tải sơ đồ</p>
+            <p style="font-size: 0.875rem; color: #94a3b8;">${error.message || 'Lỗi không xác định'}</p>
+          </div>
+        `
       }
     })
   })
@@ -365,6 +430,8 @@ function initZoomModal() {
   function closeModal() {
     modal.classList.remove('active')
     document.body.style.overflow = ''
+    // Clear content when closing to free memory
+    modalContent.innerHTML = ''
   }
 
   closeBtn?.addEventListener('click', closeModal)
