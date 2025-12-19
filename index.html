@@ -24,10 +24,13 @@
       </a>
       <ul class="nav-menu">
         <li><a href="#hero" class="nav-link">Giới thiệu</a></li>
-        <li><a href="#workflows" class="nav-link">Quy trình</a></li>
+        <li><a href="#agenda" class="nav-link">Agenda</a></li>
         <li><a href="#tools" class="nav-link">Công cụ</a></li>
-        <li><a href="#best-practices" class="nav-link">Best Practices</a></li>
-        <li><a href="#resources" class="nav-link">Tài nguyên</a></li>
+        <li><a href="#prompt-templates" class="nav-link">Prompt</a></li>
+        <li><a href="#workflows" class="nav-link">Quy trình</a></li>
+        <li><a href="#mistakes" class="nav-link">Sai lầm</a></li>
+        <li><a href="#sdd-detail" class="nav-link">SDD</a></li>
+        <li><a href="#bmad-detail" class="nav-link">BMAD</a></li>
       </ul>
     </div>
   </nav>
@@ -38,7 +41,7 @@
     <div class="hero-content">
       <div class="hero-badge">
         <span class="badge-icon">✨</span>
-        <span>Seminar 2024</span>
+        <span>Seminar 2025</span>
       </div>
       <h1 class="hero-title">
         <span class="title-line">AI-Powered</span>
@@ -49,38 +52,351 @@
         Từ Prompt Engineering đến Spec-Driven Development.
       </p>
       <div class="hero-cta">
-        <a href="#workflows" class="btn btn-primary">
-          <span>Khám phá quy trình</span>
+        <a href="#agenda" class="btn btn-primary">
+          <span>Bắt đầu ngay</span>
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
             <path d="M5 12h14M12 5l7 7-7 7" />
           </svg>
         </a>
-        <a href="#tools" class="btn btn-secondary">Xem công cụ</a>
       </div>
       <div class="hero-stats">
         <div class="stat">
-          <span class="stat-number">4</span>
-          <span class="stat-label">Quy trình</span>
+          <span class="stat-number">8</span>
+          <span class="stat-label">Chủ đề</span>
         </div>
         <div class="stat">
-          <span class="stat-number">21+</span>
-          <span class="stat-label">AI Agents</span>
+          <span class="stat-number">4</span>
+          <span class="stat-label">Công cụ</span>
         </div>
         <div class="stat">
           <span class="stat-number">6</span>
-          <span class="stat-label">Steps SDD</span>
+          <span class="stat-label">Sai lầm cần tránh</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Agenda Section -->
+  <section id="agenda" class="section agenda animate-section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-badge">Nội dung</span>
+        <h2 class="section-title">Agenda <span class="gradient-text">Seminar</span></h2>
+        <p class="section-desc">Các chủ đề sẽ được trình bày</p>
+      </div>
+
+      <div class="agenda-timeline">
+        <div class="agenda-item animate-item">
+          <div class="agenda-icon">🎯</div>
+          <div class="agenda-content">
+            <h3>Giới thiệu & Mục tiêu</h3>
+            <p>Tại sao cần chuẩn hóa quy trình AI? Vấn đề hiện tại và cách giải quyết.</p>
+          </div>
+        </div>
+        <div class="agenda-item animate-item">
+          <div class="agenda-icon">🛠️</div>
+          <div class="agenda-content">
+            <h3>Công cụ AI (Cursor, Antigravity)</h3>
+            <p>Demo cách sử dụng Cursor IDE và Antigravity hiệu quả.</p>
+          </div>
+        </div>
+        <div class="agenda-item animate-item">
+          <div class="agenda-icon">✍️</div>
+          <div class="agenda-content">
+            <h3>Prompt Engineering</h3>
+            <p>Cách viết prompt chuẩn, templates và best practices.</p>
+          </div>
+        </div>
+        <div class="agenda-item animate-item">
+          <div class="agenda-icon">⚠️</div>
+          <div class="agenda-content">
+            <h3>Sai lầm thường gặp</h3>
+            <p>6 lỗi phổ biến khi sử dụng AI và cách khắc phục.</p>
+          </div>
+        </div>
+        <div class="agenda-item animate-item">
+          <div class="agenda-icon">📋</div>
+          <div class="agenda-content">
+            <h3>Quy trình SDD (Spec-Kit)</h3>
+            <p>6 bước Spec-Driven Development với Specify CLI.</p>
+          </div>
+        </div>
+        <div class="agenda-item animate-item">
+          <div class="agenda-icon">🚀</div>
+          <div class="agenda-content">
+            <h3>BMAD Method</h3>
+            <p>4-phase AI-Driven Agile Development workflow.</p>
+          </div>
+        </div>
+        <div class="agenda-item animate-item">
+          <div class="agenda-icon">❓</div>
+          <div class="agenda-content">
+            <h3>Q&A</h3>
+            <p>Hỏi đáp và thảo luận.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Tools Section (Detailed) -->
+  <section id="tools" class="section tools-detailed animate-section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-badge">Công cụ</span>
+        <h2 class="section-title">Bộ công cụ <span class="gradient-text">AI Development</span></h2>
+        <p class="section-desc">4 công cụ chính</p>
+      </div>
+
+      <!-- Cursor IDE -->
+      <div class="tool-detail animate-item">
+        <div class="tool-detail-header">
+          <div class="tool-detail-icon">⌨️</div>
+          <div class="tool-detail-title">
+            <h3>Cursor IDE</h3>
+            <span class="tool-tag">Code Editor</span>
+          </div>
+        </div>
+        <div class="tool-detail-body">
+          <div class="tool-features-grid">
+            <div class="feature-box">
+              <h4>💬 AI Chat</h4>
+              <p>Chat với AI về code, hỏi đáp, debug. Có context của cả project.</p>
+              <code>Ctrl/Cmd + L</code>
+            </div>
+            <div class="feature-box">
+              <h4>✏️ Inline Edit</h4>
+              <p>Chỉnh sửa code trực tiếp với AI. Select code → describe change.</p>
+              <code>Ctrl/Cmd + K</code>
+            </div>
+            <div class="feature-box">
+              <h4>🎼 Composer</h4>
+              <p>Tạo/sửa nhiều file cùng lúc. Ideal cho features lớn.</p>
+              <code>Ctrl/Cmd + I</code>
+            </div>
+            <div class="feature-box">
+              <h4>📎 @ References</h4>
+              <p>Tag files, folders, docs vào context. @file, @folder, @web</p>
+              <code>@filename</code>
+            </div>
+          </div>
+          <div class="tool-tips">
+            <h4>💡 Tips sử dụng Cursor:</h4>
+            <ul>
+              <li>Luôn add files liên quan vào context trước khi hỏi</li>
+              <li>Sử dụng Composer cho task multi-file, Chat cho single file</li>
+              <li>Review code trước khi accept, đừng accept mù quáng</li>
+              <li>Dùng @docs để reference documentation bên ngoài</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Antigravity -->
+      <div class="tool-detail featured animate-item">
+        <div class="tool-detail-header">
+          <div class="tool-detail-icon">🚀</div>
+          <div class="tool-detail-title">
+            <h3>Antigravity (Google DeepMind)</h3>
+            <span class="tool-tag">AI Agent</span>
+          </div>
+        </div>
+        <div class="tool-detail-body">
+          <div class="tool-features-grid">
+            <div class="feature-box highlight">
+              <h4>📋 PLANNING Mode</h4>
+              <p>Nghiên cứu codebase, thiết kế giải pháp, tạo implementation plan để user review.</p>
+            </div>
+            <div class="feature-box highlight">
+              <h4>⚡ EXECUTION Mode</h4>
+              <p>Viết code, implement features theo plan đã được approve.</p>
+            </div>
+            <div class="feature-box highlight">
+              <h4>✅ VERIFICATION Mode</h4>
+              <p>Test, validate, tạo walkthrough documentation.</p>
+            </div>
+            <div class="feature-box">
+              <h4>🌐 Browser Automation</h4>
+              <p>Tự động test UI, navigate web, capture screenshots.</p>
+            </div>
+          </div>
+          <div class="tool-workflow">
+            <h4>🔄 Quy trình làm việc với Antigravity:</h4>
+            <div class="workflow-steps-visual">
+              <div class="wf-step">
+                <span class="wf-num">1</span>
+                <span class="wf-text">User Request</span>
+              </div>
+              <div class="wf-arrow">→</div>
+              <div class="wf-step">
+                <span class="wf-num">2</span>
+                <span class="wf-text">PLANNING</span>
+              </div>
+              <div class="wf-arrow">→</div>
+              <div class="wf-step">
+                <span class="wf-num">3</span>
+                <span class="wf-text">User Approve</span>
+              </div>
+              <div class="wf-arrow">→</div>
+              <div class="wf-step">
+                <span class="wf-num">4</span>
+                <span class="wf-text">EXECUTION</span>
+              </div>
+              <div class="wf-arrow">→</div>
+              <div class="wf-step">
+                <span class="wf-num">5</span>
+                <span class="wf-text">VERIFICATION</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- BMAD & Spec-Kit (Brief) -->
+      <div class="tools-row">
+        <div class="tool-card-mini animate-item">
+          <h3>🔧 BMAD Method</h3>
+          <p>21 AI agents, 4-phase agile workflow. Build More, Architect Dreams.</p>
+          <ul>
+            <li>4 phases: Analysis → Planning → Solutioning → Implementation</li>
+            <li>Specialized agents: PM, Architect, Developer, Test...</li>
+            <li>Scale-adaptive từ bug fix đến enterprise</li>
+          </ul>
+          <a href="https://github.com/bmad-code-org/BMAD-METHOD" target="_blank" class="tool-link">GitHub →</a>
+        </div>
+        <div class="tool-card-mini animate-item">
+          <h3>🌱 Spec-Kit (GitHub)</h3>
+          <p>Spec-Driven Development toolkit. Specifications = executable code.</p>
+          <ul>
+            <li>6 steps: Install → Constitution → Specify → Plan → Tasks → Implement</li>
+            <li>Focus on WHAT & WHY, not HOW</li>
+            <li>Multi-agent support (Claude, Copilot...)</li>
+          </ul>
+          <a href="https://github.com/github/spec-kit" target="_blank" class="tool-link">GitHub →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Prompt Templates Section -->
+  <section id="prompt-templates" class="section prompt-section animate-section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-badge">Prompt Engineering</span>
+        <h2 class="section-title">Chuẩn hóa <span class="gradient-text">Prompt</span></h2>
+        <p class="section-desc">Templates và best practices để viết prompt hiệu quả</p>
+      </div>
+
+      <!-- Prompt Structure -->
+      <div class="prompt-structure animate-item">
+        <h3 class="subsection-title">📐 Cấu trúc Prompt Chuẩn</h3>
+        <div class="prompt-template">
+          <div class="prompt-section-block">
+            <span class="prompt-label">1. CONTEXT</span>
+            <p>Bối cảnh, background, role của AI</p>
+            <code>You are an expert [role]. We are working on [project type]...</code>
+          </div>
+          <div class="prompt-section-block">
+            <span class="prompt-label">2. TASK</span>
+            <p>Mục tiêu cụ thể, rõ ràng, đo lường được</p>
+            <code>I need you to [specific action] that [success criteria]...</code>
+          </div>
+          <div class="prompt-section-block">
+            <span class="prompt-label">3. CONSTRAINTS</span>
+            <p>Giới hạn, yêu cầu, tech stack</p>
+            <code>Requirements: Use TypeScript, follow SOLID principles, max 100 lines...</code>
+          </div>
+          <div class="prompt-section-block">
+            <span class="prompt-label">4. EXAMPLES</span>
+            <p>Input/Output mẫu, format mong muốn</p>
+            <code>Example input: {...} Expected output: {...}</code>
+          </div>
+          <div class="prompt-section-block">
+            <span class="prompt-label">5. OUTPUT FORMAT</span>
+            <p>Định dạng kết quả mong đợi</p>
+            <code>Return as JSON/markdown/code block with explanation...</code>
+          </div>
+        </div>
+      </div>
+
+      <!-- Example Prompts -->
+      <div class="example-prompts animate-item">
+        <h3 class="subsection-title">📝 Ví dụ Prompt Thực tế</h3>
+
+        <div class="prompt-example">
+          <div class="prompt-example-header">
+            <span class="prompt-type bad">❌ Prompt kém</span>
+          </div>
+          <div class="prompt-example-content">
+            <code>Fix this bug</code>
+          </div>
+          <p class="prompt-note">Thiếu context, không có code, không nêu bug là gì</p>
+        </div>
+
+        <div class="prompt-example">
+          <div class="prompt-example-header">
+            <span class="prompt-type good">✅ Prompt tốt</span>
+          </div>
+          <div class="prompt-example-content">
+            <pre><code>Context: React TypeScript project using TanStack Query for API calls.
+
+Problem: The useQuery hook throws "Invalid hook call" error when called inside 
+handleSubmit function.
+
+Current code:
+```typescript
+const handleSubmit = () => {
+  const { data } = useQuery(['user'], fetchUser); // Error here
+}
+```
+
+Expected: Fetch user data on form submit without hook error.
+
+Constraints: 
+- Keep using TanStack Query
+- Follow React hooks rules
+
+Please: 
+1. Explain why this error occurs
+2. Provide corrected code
+3. Suggest best practice for this use case</code></pre>
+          </div>
+          <p class="prompt-note">Có context, code cụ thể, constraint rõ ràng, yêu cầu output cụ thể</p>
+        </div>
+      </div>
+
+      <!-- Quick Templates -->
+      <div class="quick-templates animate-item">
+        <h3 class="subsection-title">⚡ Quick Templates</h3>
+        <div class="templates-grid">
+          <div class="template-card">
+            <h4>🐛 Debug</h4>
+            <code>Error: [error message]<br>Code: [relevant code]<br>Expected: [what should happen]<br>Actual: [what happens]</code>
+          </div>
+          <div class="template-card">
+            <h4>✨ New Feature</h4>
+            <code>Feature: [description]<br>Tech: [stack/constraints]<br>Files: @file1, @file2<br>Accept criteria: [list]</code>
+          </div>
+          <div class="template-card">
+            <h4>🔄 Refactor</h4>
+            <code>Refactor [file/function]<br>Goal: [improve what]<br>Keep: [don't change]<br>Pattern: [design pattern]</code>
+          </div>
+          <div class="template-card">
+            <h4>📖 Explain</h4>
+            <code>Explain [code/concept]<br>Level: [beginner/expert]<br>Focus: [specific aspect]<br>Include: examples</code>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
   <!-- Workflows Section -->
-  <section id="workflows" class="section workflows">
+  <section id="workflows" class="section workflows animate-section">
     <div class="container">
       <div class="section-header">
         <span class="section-badge">Quy trình</span>
         <h2 class="section-title">Workflows <span class="gradient-text">Chuẩn hóa</span></h2>
-        <p class="section-desc">4 quy trình chính giúp team làm việc hiệu quả với AI</p>
+        <p class="section-desc">Sơ đồ quy trình làm việc với AI</p>
       </div>
 
       <div class="workflow-tabs">
@@ -116,7 +432,8 @@
               <li><span class="step-num">5</span>Execute & Iterate</li>
             </ul>
           </div>
-          <div class="workflow-diagram">
+          <div class="workflow-diagram" data-zoomable>
+            <div class="zoom-hint">🔍</div>
             <div class="mermaid" id="diagram-prompt"></div>
           </div>
         </div>
@@ -135,7 +452,8 @@
               <li><span class="step-num">6</span>Execute (/speckit.implement)</li>
             </ul>
           </div>
-          <div class="workflow-diagram">
+          <div class="workflow-diagram vertical-scroll" data-zoomable>
+            <div class="zoom-hint">🔍</div>
             <div class="mermaid" id="diagram-spec-kit"></div>
           </div>
         </div>
@@ -152,7 +470,8 @@
               <li><span class="step-num">4</span><strong>Implementation:</strong> Story-driven + Validation</li>
             </ul>
           </div>
-          <div class="workflow-diagram">
+          <div class="workflow-diagram vertical-scroll" data-zoomable>
+            <div class="zoom-hint">🔍</div>
             <div class="mermaid" id="diagram-bmad"></div>
           </div>
         </div>
@@ -168,7 +487,8 @@
               <li><span class="step-num">📤</span><strong>Output:</strong> Working Software + Docs</li>
             </ul>
           </div>
-          <div class="workflow-diagram">
+          <div class="workflow-diagram vertical-scroll" data-zoomable>
+            <div class="zoom-hint">🔍</div>
             <div class="mermaid" id="diagram-overview"></div>
           </div>
         </div>
@@ -176,236 +496,438 @@
     </div>
   </section>
 
-  <!-- Tools Section -->
-  <section id="tools" class="section tools">
+  <!-- Common Mistakes Section -->
+  <section id="mistakes" class="section mistakes animate-section">
     <div class="container">
       <div class="section-header">
-        <span class="section-badge">Công cụ</span>
-        <h2 class="section-title">Bộ công cụ <span class="gradient-text">AI Development</span></h2>
-        <p class="section-desc">Các công cụ chúng ta đang sử dụng</p>
+        <span class="section-badge">⚠️ Lưu ý</span>
+        <h2 class="section-title">Sai lầm <span class="gradient-text">thường gặp</span></h2>
+        <p class="section-desc">6 lỗi phổ biến khi sử dụng AI và cách khắc phục</p>
       </div>
 
-      <div class="tools-grid">
-        <!-- Cursor -->
-        <div class="tool-card">
-          <div class="tool-icon">
-            <span class="icon-bg"></span>
-            <svg width="40" height="40" viewBox="0 0 24 24" fill="currentColor">
-              <path
-                d="M13.325 3.05L8.677 20.18a1.5 1.5 0 1 1-2.896-.78l4.648-17.13a1.5 1.5 0 0 1 2.896.78zm5.615 5.01a1.5 1.5 0 0 1 0 2.122l-2.438 2.438 2.438 2.438a1.5 1.5 0 0 1-2.122 2.122l-3.5-3.5a1.5 1.5 0 0 1 0-2.122l3.5-3.5a1.5 1.5 0 0 1 2.122 0z" />
-            </svg>
+      <div class="mistakes-grid">
+        <div class="mistake-card animate-item">
+          <div class="mistake-number">1</div>
+          <div class="mistake-content">
+            <h3>❌ Accept code không review</h3>
+            <p class="mistake-desc">Chấp nhận code AI generate mà không đọc hiểu.</p>
+            <div class="mistake-solution">
+              <span class="solution-label">✅ Khắc phục:</span>
+              <p>Luôn đọc, hiểu và test code trước khi merge. AI không hoàn hảo.</p>
+            </div>
           </div>
-          <h3 class="tool-name">Cursor IDE</h3>
-          <p class="tool-desc">AI-powered code editor. Chat với codebase, composer mode, và inline editing.</p>
-          <ul class="tool-features">
-            <li>✓ AI Chat với context</li>
-            <li>✓ Composer multi-file</li>
-            <li>✓ Inline suggestions</li>
-            <li>✓ Code review AI</li>
-          </ul>
-          <a href="https://cursor.sh" target="_blank" class="tool-link">
-            cursor.sh
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3" />
-            </svg>
-          </a>
         </div>
 
-        <!-- Antigravity -->
-        <div class="tool-card featured">
-          <div class="tool-badge">Đang dùng</div>
-          <div class="tool-icon">
-            <span class="icon-bg"></span>
-            <svg width="40" height="40" viewBox="0 0 24 24" fill="currentColor">
-              <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
-            </svg>
+        <div class="mistake-card animate-item">
+          <div class="mistake-number">2</div>
+          <div class="mistake-content">
+            <h3>❌ Prompt quá mơ hồ</h3>
+            <p class="mistake-desc">"Fix this", "Make it better" - thiếu context cụ thể.</p>
+            <div class="mistake-solution">
+              <span class="solution-label">✅ Khắc phục:</span>
+              <p>Dùng template: Context → Task → Constraints → Examples.</p>
+            </div>
           </div>
-          <h3 class="tool-name">Antigravity</h3>
-          <p class="tool-desc">Google DeepMind AI assistant. Task-driven development với planning & execution modes.</p>
-          <ul class="tool-features">
-            <li>✓ PLANNING mode</li>
-            <li>✓ EXECUTION mode</li>
-            <li>✓ VERIFICATION mode</li>
-            <li>✓ Browser automation</li>
-          </ul>
-          <a href="#" class="tool-link">
-            Integrated in Cursor
-          </a>
         </div>
 
-        <!-- BMAD Method -->
-        <div class="tool-card">
-          <div class="tool-icon">
-            <span class="icon-bg"></span>
-            <svg width="40" height="40" viewBox="0 0 24 24" fill="currentColor">
-              <path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2zm0 18a8 8 0 1 1 8-8 8 8 0 0 1-8 8z" />
-              <path d="M12 6a1 1 0 0 0-1 1v5a1 1 0 0 0 .293.707l3 3a1 1 0 0 0 1.414-1.414L13 11.586V7a1 1 0 0 0-1-1z" />
-            </svg>
+        <div class="mistake-card animate-item">
+          <div class="mistake-number">3</div>
+          <div class="mistake-content">
+            <h3>❌ Không cung cấp context</h3>
+            <p class="mistake-desc">Hỏi mà không @ files liên quan, không nêu tech stack.</p>
+            <div class="mistake-solution">
+              <span class="solution-label">✅ Khắc phục:</span>
+              <p>Luôn @file, nêu rõ tech stack, project structure trước khi hỏi.</p>
+            </div>
           </div>
-          <h3 class="tool-name">BMAD Method</h3>
-          <p class="tool-desc">21 AI agents, 4-phase agile workflow. Build More, Architect Dreams.</p>
-          <ul class="tool-features">
-            <li>✓ 21 specialized agents</li>
-            <li>✓ 4-phase methodology</li>
-            <li>✓ Scale-adaptive</li>
-            <li>✓ Custom modules</li>
-          </ul>
-          <a href="https://github.com/bmad-code-org/BMAD-METHOD" target="_blank" class="tool-link">
-            GitHub Repo
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3" />
-            </svg>
-          </a>
         </div>
 
-        <!-- Spec-Kit -->
-        <div class="tool-card">
-          <div class="tool-icon">
-            <span class="icon-bg"></span>
-            <svg width="40" height="40" viewBox="0 0 24 24" fill="currentColor">
-              <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
-              <path d="M14 2v6h6M16 13H8M16 17H8M10 9H8" />
-            </svg>
+        <div class="mistake-card animate-item">
+          <div class="mistake-number">4</div>
+          <div class="mistake-content">
+            <h3>❌ Task quá lớn</h3>
+            <p class="mistake-desc">Yêu cầu AI làm cả feature phức tạp trong 1 prompt.</p>
+            <div class="mistake-solution">
+              <span class="solution-label">✅ Khắc phục:</span>
+              <p>Chia nhỏ task. 1 prompt = 1 việc cụ thể. Iterate dần dần.</p>
+            </div>
           </div>
-          <h3 class="tool-name">Spec-Kit</h3>
-          <p class="tool-desc">GitHub's Spec-Driven Development toolkit. Specifications = executable code.</p>
-          <ul class="tool-features">
-            <li>✓ Specify CLI</li>
-            <li>✓ 6-step workflow</li>
-            <li>✓ Multi-agent support</li>
-            <li>✓ Task breakdown</li>
-          </ul>
-          <a href="https://github.com/github/spec-kit" target="_blank" class="tool-link">
-            GitHub Repo
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3" />
-            </svg>
-          </a>
+        </div>
+
+        <div class="mistake-card animate-item">
+          <div class="mistake-number">5</div>
+          <div class="mistake-content">
+            <h3>❌ Share secrets với AI</h3>
+            <p class="mistake-desc">Paste API keys, passwords vào prompt.</p>
+            <div class="mistake-solution">
+              <span class="solution-label">✅ Khắc phục:</span>
+              <p>NEVER share secrets. Dùng placeholder: [API_KEY], [PASSWORD].</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="mistake-card animate-item">
+          <div class="mistake-number">6</div>
+          <div class="mistake-content">
+            <h3>❌ Không học từ AI</h3>
+            <p class="mistake-desc">Copy-paste mà không hiểu code, không improve skill.</p>
+            <div class="mistake-solution">
+              <span class="solution-label">✅ Khắc phục:</span>
+              <p>Đọc hiểu code, hỏi AI giải thích, apply patterns vào lần sau.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="mistakes-summary animate-item">
+        <h3>🎯 Tóm tắt: AI là Copilot, không phải Autopilot</h3>
+        <p>AI hỗ trợ tăng productivity, nhưng quyết định cuối cùng và responsibility vẫn thuộc về developer. Review,
+          test, và học hỏi từ mỗi interaction.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- SDD Detailed Section -->
+  <section id="sdd-detail" class="section sdd-detail animate-section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-badge">Quy trình chi tiết</span>
+        <h2 class="section-title">Spec-Driven <span class="gradient-text">Development</span></h2>
+        <p class="section-desc">Quy trình phát triển phần mềm theo hướng Specification (Spec-Kit)</p>
+      </div>
+
+      <!-- SDD Philosophy -->
+      <div class="sdd-philosophy animate-item">
+        <div class="philosophy-card">
+          <h3>🧠 Triết lý SDD</h3>
+          <p><strong>Spec-Driven Development</strong> đảo ngược quy trình truyền thống: Thay vì code trước rồi document
+            sau, ta viết specification chi tiết trước, sau đó AI generate code từ spec.</p>
+          <div class="philosophy-diagram">
+            <div class="compare-item">
+              <span class="compare-label old">Truyền thống:</span>
+              <span class="compare-flow">Vague Idea → Code → Bug → Fix → Document</span>
+            </div>
+            <div class="compare-item">
+              <span class="compare-label new">SDD:</span>
+              <span class="compare-flow">Clear Spec → AI Generate → Review → Working Code + Docs</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 6 Steps Detail -->
+      <div class="sdd-steps">
+        <h3 class="subsection-title">📋 6 Bước Spec-Kit Chi tiết</h3>
+
+        <div class="step-detail animate-item">
+          <div class="step-header">
+            <span class="step-badge">Step 1</span>
+            <h4>📦 Install Specify CLI</h4>
+          </div>
+          <div class="step-body">
+            <pre><code>uv tool install specify-cli --from git+https://github.com/github/spec-kit.git</code></pre>
+            <p>Cài đặt CLI tool để sử dụng các slash commands.</p>
+          </div>
+        </div>
+
+        <div class="step-detail animate-item">
+          <div class="step-header">
+            <span class="step-badge">Step 2</span>
+            <h4>📜 /speckit.constitution</h4>
+          </div>
+          <div class="step-body">
+            <p><strong>Mục đích:</strong> Định nghĩa "hiến pháp" cho project - các nguyên tắc và guidelines.</p>
+            <pre><code>/speckit.constitution Create principles focused on:
+- Code quality: TypeScript strict mode, ESLint
+- Testing: 80% coverage minimum
+- Performance: Bundle size < 500KB
+- Accessibility: WCAG 2.1 AA</code></pre>
+          </div>
+        </div>
+
+        <div class="step-detail animate-item">
+          <div class="step-header">
+            <span class="step-badge">Step 3</span>
+            <h4>📝 /speckit.specify</h4>
+          </div>
+          <div class="step-body">
+            <p><strong>Mục đích:</strong> Mô tả WHAT & WHY, không quan tâm HOW.</p>
+            <pre><code>/speckit.specify Build a photo album app where:
+- Users can create albums grouped by date
+- Photos display in tile interface
+- Albums can be reordered via drag-drop
+- No nested albums allowed</code></pre>
+          </div>
+        </div>
+
+        <div class="step-detail animate-item">
+          <div class="step-header">
+            <span class="step-badge">Step 4</span>
+            <h4>🗺️ /speckit.plan</h4>
+          </div>
+          <div class="step-body">
+            <p><strong>Mục đích:</strong> Định nghĩa tech stack và architecture.</p>
+            <pre><code>/speckit.plan
+- Framework: React 18 with TypeScript
+- State: Zustand
+- Styling: TailwindCSS
+- Storage: IndexedDB for photos
+- DnD: @dnd-kit library</code></pre>
+          </div>
+        </div>
+
+        <div class="step-detail animate-item">
+          <div class="step-header">
+            <span class="step-badge">Step 5</span>
+            <h4>📊 /speckit.tasks</h4>
+          </div>
+          <div class="step-body">
+            <p><strong>Mục đích:</strong> Chia plan thành tasks nhỏ, actionable.</p>
+            <pre><code>/speckit.tasks
+
+Output:
+- [ ] Setup Vite + React + TypeScript
+- [ ] Create Album component
+- [ ] Implement photo tile grid
+- [ ] Add drag-drop reordering
+- [ ] Add date grouping logic
+- [ ] Write unit tests</code></pre>
+          </div>
+        </div>
+
+        <div class="step-detail animate-item">
+          <div class="step-header">
+            <span class="step-badge">Step 6</span>
+            <h4>⚡ /speckit.implement</h4>
+          </div>
+          <div class="step-body">
+            <p><strong>Mục đích:</strong> Execute tất cả tasks, generate code.</p>
+            <pre><code>/speckit.implement
+
+AI sẽ:
+1. Tạo project structure
+2. Generate components
+3. Wire up logic
+4. Write tests
+5. Create documentation</code></pre>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Best Practices Section -->
-  <section id="best-practices" class="section best-practices">
+  <!-- BMAD Detailed Section -->
+  <section id="bmad-detail" class="section bmad-detail animate-section">
     <div class="container">
       <div class="section-header">
-        <span class="section-badge">Best Practices</span>
-        <h2 class="section-title">Chuẩn hóa <span class="gradient-text">Quy trình</span></h2>
-        <p class="section-desc">Các nguyên tắc làm việc hiệu quả với AI</p>
+        <span class="section-badge">Quy trình chi tiết</span>
+        <h2 class="section-title">BMAD <span class="gradient-text">Method</span></h2>
+        <p class="section-desc">Build More, Architect Dreams - 4-Phase AI-Driven Agile Development</p>
       </div>
 
-      <div class="practices-grid">
-        <!-- Prompt Engineering -->
-        <div class="practice-card">
-          <div class="practice-header">
-            <span class="practice-icon">✍️</span>
-            <h3>Chuẩn hóa Prompt</h3>
+      <!-- BMAD Philosophy -->
+      <div class="bmad-philosophy animate-item">
+        <div class="philosophy-card">
+          <h3>� Triết lý BMAD</h3>
+          <p><strong>BMAD Method</strong> cung cấp 21 AI agents chuyên biệt, làm việc theo 4 phases. Mỗi agent có domain
+            expertise riêng (PM, Architect, Developer, UX, Test...) và collaborate để deliver kết quả tốt nhất.</p>
+          <div class="bmad-stats">
+            <div class="bmad-stat">
+              <span class="bmad-stat-num">21</span>
+              <span class="bmad-stat-label">AI Agents</span>
+            </div>
+            <div class="bmad-stat">
+              <span class="bmad-stat-num">4</span>
+              <span class="bmad-stat-label">Phases</span>
+            </div>
+            <div class="bmad-stat">
+              <span class="bmad-stat-num">50+</span>
+              <span class="bmad-stat-label">Workflows</span>
+            </div>
           </div>
-          <div class="practice-content">
-            <div class="practice-item">
-              <span class="item-icon">🎯</span>
-              <div>
-                <h4>Be Specific</h4>
-                <p>Xác định rõ ràng mục tiêu, output mong muốn</p>
+        </div>
+      </div>
+
+      <!-- 4 Phases Detail -->
+      <div class="bmad-phases">
+        <h3 class="subsection-title">� 4 Phases Chi tiết</h3>
+
+        <div class="phase-detail animate-item">
+          <div class="phase-header phase-1">
+            <span class="phase-badge">Phase 1</span>
+            <h4>📊 Analysis (Optional)</h4>
+          </div>
+          <div class="phase-body">
+            <p><strong>Mục đích:</strong> Brainstorm, nghiên cứu, khám phá giải pháp.</p>
+            <div class="phase-activities">
+              <div class="activity">
+                <span class="activity-icon">💭</span>
+                <div>
+                  <h5>Brainstorm</h5>
+                  <p>Thu thập ý tưởng, define problem statement</p>
+                </div>
+              </div>
+              <div class="activity">
+                <span class="activity-icon">🔬</span>
+                <div>
+                  <h5>Research</h5>
+                  <p>Nghiên cứu solutions, analyze competitors</p>
+                </div>
+              </div>
+              <div class="activity">
+                <span class="activity-icon">🧭</span>
+                <div>
+                  <h5>Explore</h5>
+                  <p>Prototype ideas, validate assumptions</p>
+                </div>
               </div>
             </div>
-            <div class="practice-item">
-              <span class="item-icon">📄</span>
-              <div>
-                <h4>Provide Context</h4>
-                <p>Cung cấp đầy đủ context, files liên quan</p>
-              </div>
-            </div>
-            <div class="practice-item">
-              <span class="item-icon">📝</span>
-              <div>
-                <h4>Use Examples</h4>
-                <p>Đưa ví dụ cụ thể khi cần format đặc biệt</p>
-              </div>
-            </div>
-            <div class="practice-item">
-              <span class="item-icon">🔄</span>
-              <div>
-                <h4>Iterate</h4>
-                <p>Refine prompt dựa trên kết quả</p>
-              </div>
+            <div class="phase-command">
+              <code>*workflow-init</code>
+              <span>→ Phân tích project và recommend workflow track</span>
             </div>
           </div>
         </div>
 
-        <!-- Workflow -->
-        <div class="practice-card">
-          <div class="practice-header">
-            <span class="practice-icon">⚙️</span>
-            <h3>Quy trình làm việc</h3>
+        <div class="phase-detail animate-item">
+          <div class="phase-header phase-2">
+            <span class="phase-badge">Phase 2</span>
+            <h4>📝 Planning</h4>
           </div>
-          <div class="practice-content">
-            <div class="practice-item">
-              <span class="item-icon">1️⃣</span>
-              <div>
-                <h4>Define Objectives</h4>
-                <p>Xác định mục tiêu rõ ràng trước khi bắt đầu</p>
+          <div class="phase-body">
+            <p><strong>Mục đích:</strong> Tạo documentation chi tiết cho project.</p>
+            <div class="phase-activities">
+              <div class="activity">
+                <span class="activity-icon">📋</span>
+                <div>
+                  <h5>PRD (Product Requirements)</h5>
+                  <p>Define features, user stories, acceptance criteria</p>
+                </div>
+              </div>
+              <div class="activity">
+                <span class="activity-icon">⚙️</span>
+                <div>
+                  <h5>Tech Specs</h5>
+                  <p>Architecture decisions, API contracts, data models</p>
+                </div>
+              </div>
+              <div class="activity">
+                <span class="activity-icon">🎨</span>
+                <div>
+                  <h5>Design Docs</h5>
+                  <p>UI/UX guidelines, component library, style guide</p>
+                </div>
               </div>
             </div>
-            <div class="practice-item">
-              <span class="item-icon">2️⃣</span>
-              <div>
-                <h4>Prepare Context</h4>
-                <p>Chuẩn bị spec, design docs, constraints</p>
-              </div>
-            </div>
-            <div class="practice-item">
-              <span class="item-icon">3️⃣</span>
-              <div>
-                <h4>Small Iterations</h4>
-                <p>Làm từng phần nhỏ, validate liên tục</p>
-              </div>
-            </div>
-            <div class="practice-item">
-              <span class="item-icon">4️⃣</span>
-              <div>
-                <h4>Review & Test</h4>
-                <p>Review output, chạy test trước khi merge</p>
-              </div>
+            <div class="phase-agents">
+              <span class="agent-tag">Product Manager</span>
+              <span class="agent-tag">Tech Lead</span>
+              <span class="agent-tag">UX Designer</span>
             </div>
           </div>
         </div>
 
-        <!-- AI Collaboration -->
-        <div class="practice-card">
-          <div class="practice-header">
-            <span class="practice-icon">🤝</span>
-            <h3>Làm việc với AI</h3>
+        <div class="phase-detail animate-item">
+          <div class="phase-header phase-3">
+            <span class="phase-badge">Phase 3</span>
+            <h4>🏗️ Solutioning</h4>
           </div>
-          <div class="practice-content">
-            <div class="practice-item">
-              <span class="item-icon">💡</span>
-              <div>
-                <h4>AI là Copilot</h4>
-                <p>AI hỗ trợ, không thay thế tư duy</p>
+          <div class="phase-body">
+            <p><strong>Mục đích:</strong> Thiết kế architecture và technical approach.</p>
+            <div class="phase-activities">
+              <div class="activity">
+                <span class="activity-icon">🏛️</span>
+                <div>
+                  <h5>Architecture Design</h5>
+                  <p>System design, component structure, dependencies</p>
+                </div>
+              </div>
+              <div class="activity">
+                <span class="activity-icon">🖼️</span>
+                <div>
+                  <h5>UX Design</h5>
+                  <p>Wireframes, user flows, interaction patterns</p>
+                </div>
+              </div>
+              <div class="activity">
+                <span class="activity-icon">🔧</span>
+                <div>
+                  <h5>Technical Approach</h5>
+                  <p>Implementation strategy, risk mitigation</p>
+                </div>
               </div>
             </div>
-            <div class="practice-item">
-              <span class="item-icon">✅</span>
-              <div>
-                <h4>Always Verify</h4>
-                <p>Luôn review và test code AI generate</p>
+            <div class="phase-agents">
+              <span class="agent-tag">Architect</span>
+              <span class="agent-tag">UX Designer</span>
+              <span class="agent-tag">Security Expert</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="phase-detail animate-item">
+          <div class="phase-header phase-4">
+            <span class="phase-badge">Phase 4</span>
+            <h4>⚡ Implementation</h4>
+          </div>
+          <div class="phase-body">
+            <p><strong>Mục đích:</strong> Story-driven development với continuous validation.</p>
+            <div class="phase-activities">
+              <div class="activity">
+                <span class="activity-icon">📖</span>
+                <div>
+                  <h5>Story-driven Dev</h5>
+                  <p>Implement từng user story, maintain traceability</p>
+                </div>
+              </div>
+              <div class="activity">
+                <span class="activity-icon">✅</span>
+                <div>
+                  <h5>Continuous Validation</h5>
+                  <p>Test each story, validate against acceptance criteria</p>
+                </div>
+              </div>
+              <div class="activity">
+                <span class="activity-icon">📦</span>
+                <div>
+                  <h5>Delivery</h5>
+                  <p>Code review, documentation, deployment</p>
+                </div>
               </div>
             </div>
-            <div class="practice-item">
-              <span class="item-icon">📚</span>
-              <div>
-                <h4>Learn Patterns</h4>
-                <p>Học từ code AI để improve kỹ năng</p>
-              </div>
+            <div class="phase-agents">
+              <span class="agent-tag">Developer</span>
+              <span class="agent-tag">Test Architect</span>
+              <span class="agent-tag">DevOps</span>
             </div>
-            <div class="practice-item">
-              <span class="item-icon">🛡️</span>
-              <div>
-                <h4>Security First</h4>
-                <p>Không share secrets với AI</p>
-              </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Quick Start -->
+      <div class="bmad-quickstart animate-item">
+        <h3 class="subsection-title">🚀 Quick Start</h3>
+        <div class="quickstart-steps">
+          <div class="qs-step">
+            <span class="qs-num">1</span>
+            <div class="qs-content">
+              <h4>Install BMAD</h4>
+              <pre><code>npx bmad-method@alpha install</code></pre>
+            </div>
+          </div>
+          <div class="qs-step">
+            <span class="qs-num">2</span>
+            <div class="qs-content">
+              <h4>Initialize Project</h4>
+              <pre><code>*workflow-init</code></pre>
+              <p>Load agent trong IDE và chạy command này</p>
+            </div>
+          </div>
+          <div class="qs-step">
+            <span class="qs-num">3</span>
+            <div class="qs-content">
+              <h4>Choose Track</h4>
+              <p>BMAD sẽ recommend track phù hợp dựa trên project goal của bạn</p>
             </div>
           </div>
         </div>
@@ -414,7 +936,7 @@
   </section>
 
   <!-- Resources Section -->
-  <section id="resources" class="section resources">
+  <section id="resources" class="section resources animate-section">
     <div class="container">
       <div class="section-header">
         <span class="section-badge">Tài nguyên</span>
@@ -423,28 +945,28 @@
       </div>
 
       <div class="resources-grid">
-        <a href="https://github.com/bmad-code-org/BMAD-METHOD" target="_blank" class="resource-card">
+        <a href="https://github.com/bmad-code-org/BMAD-METHOD" target="_blank" class="resource-card animate-item">
           <div class="resource-icon">📘</div>
           <h3>BMAD Method</h3>
           <p>GitHub repository với documentation đầy đủ về 21 agents và 4-phase workflow.</p>
           <span class="resource-link">github.com →</span>
         </a>
 
-        <a href="https://github.com/github/spec-kit" target="_blank" class="resource-card">
+        <a href="https://github.com/github/spec-kit" target="_blank" class="resource-card animate-item">
           <div class="resource-icon">🌱</div>
           <h3>Spec-Kit</h3>
           <p>GitHub's toolkit cho Spec-Driven Development với Specify CLI.</p>
           <span class="resource-link">github.com →</span>
         </a>
 
-        <a href="https://cursor.sh/docs" target="_blank" class="resource-card">
+        <a href="https://cursor.sh/docs" target="_blank" class="resource-card animate-item">
           <div class="resource-icon">📖</div>
           <h3>Cursor Docs</h3>
           <p>Documentation cho Cursor IDE - keyboard shortcuts, features, tips.</p>
           <span class="resource-link">cursor.sh →</span>
         </a>
 
-        <a href="https://www.youtube.com/@BMadCode" target="_blank" class="resource-card">
+        <a href="https://www.youtube.com/@BMadCode" target="_blank" class="resource-card animate-item">
           <div class="resource-icon">🎥</div>
           <h3>BMad YouTube</h3>
           <p>Video tutorials và demos về BMAD Method.</p>
@@ -462,10 +984,19 @@
           <span class="logo-icon">🤖</span>
           <span class="logo-text">AI<span class="accent">SDD</span></span>
         </div>
-        <p class="footer-text">AI-Powered Software Development Seminar 2024</p>
+        <p class="footer-text">AI-Powered Software Development Seminar 2025</p>
       </div>
     </div>
   </footer>
+
+  <!-- Zoom Modal -->
+  <div class="zoom-modal" id="zoomModal">
+    <div class="zoom-modal-backdrop"></div>
+    <div class="zoom-modal-content">
+      <button class="zoom-close" id="zoomClose">✕</button>
+      <div class="zoom-diagram" id="zoomDiagram"></div>
+    </div>
+  </div>
 
   <script type="module" src="/src/main.js"></script>
 </body>
