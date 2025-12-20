@@ -351,10 +351,10 @@ function initZoomModal() {
       try {
         // Generate unique ID for this render
         const uniqueId = `zoom-${mermaidEl.id}-${Date.now()}`
-        
+
         // Render the diagram
         const { svg } = await mermaid.render(uniqueId, definition.trim())
-        
+
         // Insert SVG directly into modal content
         modalContent.innerHTML = svg
 
@@ -389,7 +389,7 @@ function initZoomModal() {
         // Remove fixed width/height to allow responsive scaling
         svgElement.removeAttribute('width')
         svgElement.removeAttribute('height')
-        
+
         // Remove any inline styles that might interfere
         const inlineStyle = svgElement.getAttribute('style')
         if (inlineStyle) {
@@ -446,29 +446,29 @@ function initZoomModal() {
         // Mouse wheel zoom
         svgContainer.addEventListener('wheel', (e) => {
           e.preventDefault()
-          
+
           const delta = e.deltaY > 0 ? -0.15 : 0.15
           const oldZoom = zoomLevel
           const newZoom = Math.max(0.5, Math.min(5, zoomLevel + delta))
-          
+
           if (oldZoom === newZoom) return
-          
+
           // Zoom towards mouse position
           const rect = svgContainer.getBoundingClientRect()
           const mouseX = e.clientX - rect.left - rect.width / 2
           const mouseY = e.clientY - rect.top - rect.height / 2
-          
+
           // Calculate zoom point in SVG coordinates
           const zoomPointX = (mouseX - panX) / oldZoom
           const zoomPointY = (mouseY - panY) / oldZoom
-          
+
           // Update zoom level
           zoomLevel = newZoom
-          
+
           // Adjust pan to zoom towards mouse position
           panX = mouseX - zoomPointX * newZoom
           panY = mouseY - zoomPointY * newZoom
-          
+
           applyTransform()
         }, { passive: false })
 
@@ -524,7 +524,7 @@ function initZoomModal() {
         // Keyboard shortcuts for zoom/pan
         zoomKeyHandler = (e) => {
           if (!modal.classList.contains('active')) return
-          
+
           // Reset with R key
           if (e.key === 'r' || e.key === 'R') {
             e.preventDefault()
@@ -533,7 +533,7 @@ function initZoomModal() {
             panY = 0
             applyTransform()
           }
-          
+
           // Zoom in/out with + and -
           if (e.key === '+' || e.key === '=') {
             e.preventDefault()
@@ -546,7 +546,7 @@ function initZoomModal() {
             applyTransform()
           }
         }
-        
+
         document.addEventListener('keydown', zoomKeyHandler)
 
         // Force a reflow to ensure rendering
@@ -571,13 +571,13 @@ function initZoomModal() {
   function closeModal() {
     modal.classList.remove('active')
     document.body.style.overflow = ''
-    
+
     // Remove zoom keyboard handler if exists
     if (zoomKeyHandler) {
       document.removeEventListener('keydown', zoomKeyHandler)
       zoomKeyHandler = null
     }
-    
+
     // Clear content when closing to free memory
     modalContent.innerHTML = ''
   }
@@ -664,6 +664,7 @@ document.addEventListener('DOMContentLoaded', async () => {
   initNavbar()
   initZoomModal()
   initScrollAnimations()
+  initPresentationMode()
 
   // Render initial diagram after a short delay
   setTimeout(async () => {
@@ -697,4 +698,183 @@ function initScrollAnimations() {
   document.querySelectorAll('.animate-item').forEach(item => {
     animateOnScroll.observe(item)
   })
+}
+
+// Presentation Mode
+function initPresentationMode() {
+  const exitBtn = document.getElementById('presExit')
+  const currentSpan = document.getElementById('presCurrent')
+  const totalSpan = document.getElementById('presTotal')
+  const progressFill = document.getElementById('presProgressFill')
+
+  // Get all slides (sections + hero)
+  const slides = []
+  const hero = document.querySelector('.hero')
+  if (hero) slides.push(hero)
+
+  document.querySelectorAll('.section').forEach(section => {
+    slides.push(section)
+  })
+
+  if (slides.length === 0) return
+
+  let currentSlide = 0
+  let isPresentationMode = false
+
+  // Update total slides count
+  if (totalSpan) totalSpan.textContent = slides.length
+
+  function updateSlideDisplay() {
+    slides.forEach((slide, index) => {
+      slide.classList.remove('slide-active', 'slide-prev')
+      if (index === currentSlide) {
+        slide.classList.add('slide-active')
+      } else if (index < currentSlide) {
+        slide.classList.add('slide-prev')
+      }
+    })
+
+    // Update counter
+    if (currentSpan) currentSpan.textContent = currentSlide + 1
+
+    // Update progress bar
+    if (progressFill) {
+      const progress = ((currentSlide + 1) / slides.length) * 100
+      progressFill.style.width = `${progress}%`
+    }
+
+    // Scroll slide to top
+    slides[currentSlide].scrollTop = 0
+  }
+
+  function goToSlide(index) {
+    if (index >= 0 && index < slides.length) {
+      currentSlide = index
+      updateSlideDisplay()
+    }
+  }
+
+  function nextSlide() {
+    if (currentSlide < slides.length - 1) {
+      currentSlide++
+      updateSlideDisplay()
+    }
+  }
+
+  function prevSlide() {
+    if (currentSlide > 0) {
+      currentSlide--
+      updateSlideDisplay()
+    }
+  }
+
+  function enterPresentationMode() {
+    isPresentationMode = true
+    document.body.classList.add('presentation-mode')
+    currentSlide = 0
+    updateSlideDisplay()
+  }
+
+  function exitPresentationMode() {
+    isPresentationMode = false
+    document.body.classList.remove('presentation-mode')
+
+    // Remove slide classes
+    slides.forEach(slide => {
+      slide.classList.remove('slide-active', 'slide-prev')
+    })
+
+    // Scroll to top
+    window.scrollTo({ top: 0, behavior: 'smooth' })
+  }
+
+  function togglePresentationMode() {
+    if (isPresentationMode) {
+      exitPresentationMode()
+    } else {
+      enterPresentationMode()
+    }
+  }
+
+  // Event listeners
+  exitBtn?.addEventListener('click', exitPresentationMode)
+
+  // Keyboard navigation
+  document.addEventListener('keydown', (e) => {
+    // Toggle with P key
+    if (e.key === 'p' || e.key === 'P') {
+      if (!e.ctrlKey && !e.metaKey && !e.altKey) {
+        // Don't toggle if user is typing in an input
+        if (document.activeElement.tagName !== 'INPUT' &&
+          document.activeElement.tagName !== 'TEXTAREA') {
+          e.preventDefault()
+          togglePresentationMode()
+        }
+      }
+    }
+
+    // Only handle navigation in presentation mode
+    if (!isPresentationMode) return
+
+    switch (e.key) {
+      case 'ArrowRight':
+      case 'ArrowDown':
+      case ' ': // Space
+      case 'PageDown':
+        e.preventDefault()
+        nextSlide()
+        break
+      case 'ArrowLeft':
+      case 'ArrowUp':
+      case 'PageUp':
+        e.preventDefault()
+        prevSlide()
+        break
+      case 'Escape':
+        e.preventDefault()
+        exitPresentationMode()
+        break
+      case 'Home':
+        e.preventDefault()
+        goToSlide(0)
+        break
+      case 'End':
+        e.preventDefault()
+        goToSlide(slides.length - 1)
+        break
+    }
+  })
+
+  // Touch support for swipe navigation
+  let touchStartX = 0
+  let touchEndX = 0
+
+  document.addEventListener('touchstart', (e) => {
+    if (!isPresentationMode) return
+    touchStartX = e.changedTouches[0].screenX
+  }, { passive: true })
+
+  document.addEventListener('touchend', (e) => {
+    if (!isPresentationMode) return
+    touchEndX = e.changedTouches[0].screenX
+    handleSwipe()
+  }, { passive: true })
+
+  function handleSwipe() {
+    const swipeThreshold = 50
+    const diff = touchStartX - touchEndX
+
+    if (Math.abs(diff) > swipeThreshold) {
+      if (diff > 0) {
+        nextSlide() // Swipe left = next
+      } else {
+        prevSlide() // Swipe right = prev
+      }
+    }
+  }
+
+  // Check URL hash for presentation mode
+  if (window.location.hash === '#presentation') {
+    enterPresentationMode()
+  }
 }

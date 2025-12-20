@@ -286,6 +286,179 @@ pre code {
   color: var(--text-primary);
 }
 
+/* Presentation Toggle Button */
+.presentation-toggle {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  padding: var(--spacing-sm) var(--spacing-lg);
+  background: var(--gradient-primary);
+  border: none;
+  border-radius: var(--radius-lg);
+  font-size: var(--font-size-sm);
+  font-weight: 600;
+  color: white;
+  cursor: pointer;
+  transition: var(--transition-base);
+  margin-left: var(--spacing-lg);
+}
+
+.presentation-toggle:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-glow);
+}
+
+.toggle-icon {
+  font-size: var(--font-size-base);
+}
+
+/* Presentation Indicator (hidden by default) - Minimal design */
+.presentation-indicator {
+  display: none;
+  position: fixed;
+  top: var(--spacing-lg);
+  right: var(--spacing-xl);
+  z-index: 3000;
+  align-items: center;
+  gap: var(--spacing-md);
+  padding: var(--spacing-sm) var(--spacing-lg);
+  background: rgba(10, 10, 15, 0.8);
+  backdrop-filter: blur(10px);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-full);
+  opacity: 0.7;
+  transition: opacity 0.3s ease;
+}
+
+.presentation-indicator:hover {
+  opacity: 1;
+}
+
+.pres-info {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: var(--font-size-sm);
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.pres-current {
+  color: var(--accent-primary);
+}
+
+.pres-divider {
+  color: var(--text-muted);
+}
+
+.pres-progress-mini {
+  width: 60px;
+  height: 4px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.progress-fill-mini {
+  height: 100%;
+  background: var(--gradient-primary);
+  transition: width 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  width: 0%;
+}
+
+.pres-exit-mini {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  background: transparent;
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-full);
+  color: var(--text-muted);
+  font-size: var(--font-size-xs);
+  cursor: pointer;
+  transition: var(--transition-fast);
+}
+
+.pres-exit-mini:hover {
+  background: var(--accent-danger);
+  border-color: var(--accent-danger);
+  color: white;
+}
+
+/* ==========================================
+   PRESENTATION MODE STYLES
+   ========================================== */
+body.presentation-mode {
+  overflow: hidden;
+  background: var(--bg-primary);
+}
+
+body.presentation-mode .navbar {
+  display: none;
+}
+
+body.presentation-mode .footer {
+  display: none;
+}
+
+body.presentation-mode .presentation-indicator {
+  display: flex;
+}
+
+/* All sections become slides in presentation mode */
+body.presentation-mode .section,
+body.presentation-mode .hero {
+  position: fixed;
+  inset: 0;
+  min-height: 100vh;
+  height: 100vh;
+  overflow-y: auto;
+  opacity: 0;
+  visibility: hidden;
+  z-index: 1;
+  padding-top: var(--spacing-3xl);
+  padding-bottom: calc(var(--spacing-3xl) * 2);
+  display: flex;
+  flex-direction: column;
+  /* Smooth fade transition */
+  transition: opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1),
+    visibility 0.6s cubic-bezier(0.4, 0, 0.2, 1),
+    transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  transform: scale(0.95) translateY(20px);
+}
+
+body.presentation-mode .section.slide-active,
+body.presentation-mode .hero.slide-active {
+  opacity: 1;
+  visibility: visible;
+  z-index: 10;
+  transform: scale(1) translateY(0);
+}
+
+body.presentation-mode .section.slide-prev,
+body.presentation-mode .hero.slide-prev {
+  opacity: 0;
+  transform: scale(0.95) translateY(-20px);
+}
+
+/* Adjust container in presentation mode */
+body.presentation-mode .container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Hide particles in presentation mode for performance */
+body.presentation-mode .hero-particles {
+  display: none;
+}
+
+/* Hide slide dots (not needed with minimal indicator) */
+.slide-dots {
+  display: none !important;
+}
+
 /* ==========================================
    Hero Section
    ========================================== */
