@@ -411,6 +411,144 @@ function initZoomModal() {
         // Add class for styling
         svgElement.classList.add('zoom-svg')
 
+        // Wrap SVG in container for zoom/pan functionality
+        const svgContainer = document.createElement('div')
+        svgContainer.className = 'zoom-svg-container'
+        svgElement.parentNode.insertBefore(svgContainer, svgElement)
+        svgContainer.appendChild(svgElement)
+
+        // Initialize zoom/pan state
+        let zoomLevel = 1
+        let panX = 0
+        let panY = 0
+        let isDragging = false
+        let dragStartX = 0
+        let dragStartY = 0
+        let dragStartPanX = 0
+        let dragStartPanY = 0
+
+        // Update cursor based on zoom level
+        function updateCursor() {
+          if (zoomLevel > 1.01) {
+            svgContainer.style.cursor = isDragging ? 'grabbing' : 'grab'
+          } else {
+            svgContainer.style.cursor = 'default'
+          }
+        }
+
+        // Apply transform
+        function applyTransform() {
+          svgElement.style.transform = `translate(${panX}px, ${panY}px) scale(${zoomLevel})`
+          svgElement.style.transformOrigin = 'center center'
+          updateCursor()
+        }
+
+        // Mouse wheel zoom
+        svgContainer.addEventListener('wheel', (e) => {
+          e.preventDefault()
+          
+          const delta = e.deltaY > 0 ? -0.15 : 0.15
+          const oldZoom = zoomLevel
+          const newZoom = Math.max(0.5, Math.min(5, zoomLevel + delta))
+          
+          if (oldZoom === newZoom) return
+          
+          // Zoom towards mouse position
+          const rect = svgContainer.getBoundingClientRect()
+          const mouseX = e.clientX - rect.left - rect.width / 2
+          const mouseY = e.clientY - rect.top - rect.height / 2
+          
+          // Calculate zoom point in SVG coordinates
+          const zoomPointX = (mouseX - panX) / oldZoom
+          const zoomPointY = (mouseY - panY) / oldZoom
+          
+          // Update zoom level
+          zoomLevel = newZoom
+          
+          // Adjust pan to zoom towards mouse position
+          panX = mouseX - zoomPointX * newZoom
+          panY = mouseY - zoomPointY * newZoom
+          
+          applyTransform()
+        }, { passive: false })
+
+        // Mouse drag to pan
+        svgContainer.addEventListener('mousedown', (e) => {
+          // Allow panning when zoomed in
+          if (zoomLevel > 1.01) {
+            e.preventDefault()
+            isDragging = true
+            dragStartX = e.clientX
+            dragStartY = e.clientY
+            dragStartPanX = panX
+            dragStartPanY = panY
+            svgContainer.style.cursor = 'grabbing'
+          }
+        })
+
+        document.addEventListener('mousemove', (e) => {
+          if (isDragging) {
+            const deltaX = e.clientX - dragStartX
+            const deltaY = e.clientY - dragStartY
+            panX = dragStartPanX + deltaX / zoomLevel
+            panY = dragStartPanY + deltaY / zoomLevel
+            applyTransform()
+          }
+        })
+
+        document.addEventListener('mouseup', () => {
+          if (isDragging) {
+            isDragging = false
+            svgContainer.style.cursor = zoomLevel > 1 ? 'grab' : 'default'
+          }
+        })
+
+        svgContainer.addEventListener('mouseenter', updateCursor)
+        svgContainer.addEventListener('mouseleave', () => {
+          svgContainer.style.cursor = 'default'
+        })
+
+        // Add reset zoom button
+        const resetBtn = document.createElement('button')
+        resetBtn.className = 'zoom-reset-btn'
+        resetBtn.innerHTML = '🔄 Reset'
+        resetBtn.title = 'Reset zoom và pan (hoặc nhấn R)'
+        resetBtn.addEventListener('click', () => {
+          zoomLevel = 1
+          panX = 0
+          panY = 0
+          applyTransform()
+        })
+        modalContent.appendChild(resetBtn)
+
+        // Keyboard shortcuts for zoom/pan
+        zoomKeyHandler = (e) => {
+          if (!modal.classList.contains('active')) return
+          
+          // Reset with R key
+          if (e.key === 'r' || e.key === 'R') {
+            e.preventDefault()
+            zoomLevel = 1
+            panX = 0
+            panY = 0
+            applyTransform()
+          }
+          
+          // Zoom in/out with + and -
+          if (e.key === '+' || e.key === '=') {
+            e.preventDefault()
+            zoomLevel = Math.min(5, zoomLevel + 0.2)
+            applyTransform()
+          }
+          if (e.key === '-' || e.key === '_') {
+            e.preventDefault()
+            zoomLevel = Math.max(0.5, zoomLevel - 0.2)
+            applyTransform()
+          }
+        }
+        
+        document.addEventListener('keydown', zoomKeyHandler)
+
         // Force a reflow to ensure rendering
         void svgElement.offsetHeight
 
@@ -426,10 +564,20 @@ function initZoomModal() {
     })
   })
 
+  // Store zoom/pan event handlers for cleanup
+  let zoomKeyHandler = null
+
   // Close modal
   function closeModal() {
     modal.classList.remove('active')
     document.body.style.overflow = ''
+    
+    // Remove zoom keyboard handler if exists
+    if (zoomKeyHandler) {
+      document.removeEventListener('keydown', zoomKeyHandler)
+      zoomKeyHandler = null
+    }
+    
     // Clear content when closing to free memory
     modalContent.innerHTML = ''
   }
@@ -438,11 +586,12 @@ function initZoomModal() {
   backdrop?.addEventListener('click', closeModal)
 
   // Close on Escape key
-  document.addEventListener('keydown', (e) => {
+  const escapeHandler = (e) => {
     if (e.key === 'Escape' && modal.classList.contains('active')) {
       closeModal()
     }
-  })
+  }
+  document.addEventListener('keydown', escapeHandler)
 }
 
 // Create floating particles in hero section
