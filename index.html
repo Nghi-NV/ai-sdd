@@ -12,8 +12,8 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
     rel="stylesheet">
-  <script type="module" crossorigin src="/ai-sdd/assets/index-B4D_7MvE.js"></script>
-  <link rel="stylesheet" crossorigin href="/ai-sdd/assets/index-D9CqHBQl.css">
+  <script type="module" crossorigin src="/ai-sdd/assets/index-DKtq-EBd.js"></script>
+  <link rel="stylesheet" crossorigin href="/ai-sdd/assets/index-B4uPxSH4.css">
 </head>
 
 <body>
@@ -25,14 +25,15 @@
         <span class="logo-text">AI<span class="accent">SDD</span></span>
       </a>
       <ul class="nav-menu">
-        <li><a href="#hero" class="nav-link">Giới thiệu</a></li>
         <li><a href="#agenda" class="nav-link">Agenda</a></li>
+        <li><a href="#introduction" class="nav-link">Mục tiêu</a></li>
         <li><a href="#tools" class="nav-link">Công cụ</a></li>
         <li><a href="#prompt-templates" class="nav-link">Prompt</a></li>
         <li><a href="#workflows" class="nav-link">Quy trình</a></li>
         <li><a href="#mistakes" class="nav-link">Sai lầm</a></li>
         <li><a href="#sdd-detail" class="nav-link">SDD</a></li>
         <li><a href="#bmad-detail" class="nav-link">BMAD</a></li>
+        <li><a href="#qa" class="nav-link">Q&A</a></li>
       </ul>
     </div>
   </nav>
@@ -135,6 +136,129 @@
           <div class="agenda-content">
             <h3>Q&A</h3>
             <p>Hỏi đáp và thảo luận.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Introduction Section -->
+  <section id="introduction" class="section introduction animate-section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-badge">Tại sao?</span>
+        <h2 class="section-title">Giới thiệu & <span class="gradient-text">Mục tiêu</span></h2>
+        <p class="section-desc">Vấn đề hiện tại và lý do cần chuẩn hóa quy trình AI</p>
+      </div>
+
+      <!-- Current Problems -->
+      <div class="intro-problems animate-item">
+        <h3 class="subsection-title">⚠️ Vấn đề hiện tại khi sử dụng AI</h3>
+        <div class="problems-grid">
+          <div class="problem-card">
+            <div class="problem-icon">🎲</div>
+            <h4>Kết quả không nhất quán</h4>
+            <p>Mỗi lần hỏi AI cho kết quả khác nhau. Code quality phụ thuộc vào "may mắn" và cách đặt câu hỏi.</p>
+          </div>
+          <div class="problem-card">
+            <div class="problem-icon">⏰</div>
+            <h4>Lãng phí thời gian</h4>
+            <p>Phải hỏi đi hỏi lại, debug code AI generate, hoặc viết lại từ đầu vì không đúng yêu cầu.</p>
+          </div>
+          <div class="problem-card">
+            <div class="problem-icon">🧩</div>
+            <h4>Thiếu quy trình</h4>
+            <p>Mỗi người dùng AI theo cách riêng. Không có best practices chung, khó transfer knowledge.</p>
+          </div>
+          <div class="problem-card">
+            <div class="problem-icon">📉</div>
+            <h4>Technical debt</h4>
+            <p>Accept code không review → lỗi ẩn, code smell, security issues tích lũy theo thời gian.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Why Standardize -->
+      <div class="intro-why animate-item">
+        <h3 class="subsection-title">💡 Tại sao cần CHUẨN HÓA?</h3>
+        <div class="why-content">
+          <div class="why-visual">
+            <div class="comparison-box before">
+              <span class="comp-title">❌ Không chuẩn hóa</span>
+              <ul>
+                <li>Prompt mơ hồ, thiếu context</li>
+                <li>Kết quả random, khó kiểm soát</li>
+                <li>Phụ thuộc vào cá nhân</li>
+                <li>Khó scale team</li>
+                <li>Không thể đo lường hiệu quả</li>
+              </ul>
+            </div>
+            <div class="arrow-divider">→</div>
+            <div class="comparison-box after">
+              <span class="comp-title">✅ Có chuẩn hóa</span>
+              <ul>
+                <li>Prompt template có cấu trúc</li>
+                <li>Kết quả predictable, testable</li>
+                <li>Quy trình chung cho team</li>
+                <li>Dễ onboard thành viên mới</li>
+                <li>Metrics rõ ràng (velocity, quality)</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Objectives -->
+      <div class="intro-objectives animate-item">
+        <h3 class="subsection-title">🎯 Mục tiêu Seminar</h3>
+        <div class="objectives-grid">
+          <div class="objective-card">
+            <span class="obj-number">01</span>
+            <h4>Hiểu đúng về AI trong development</h4>
+            <p>AI là Copilot, không phải Autopilot. Làm rõ capabilities và limitations của AI tools.</p>
+          </div>
+          <div class="objective-card">
+            <span class="obj-number">02</span>
+            <h4>Thành thạo Prompt Engineering</h4>
+            <p>Viết prompt có cấu trúc: Context → Task → Constraints → Examples → Output format.</p>
+          </div>
+          <div class="objective-card">
+            <span class="obj-number">03</span>
+            <h4>Áp dụng Spec-Driven Development</h4>
+            <p>Workflow: Viết spec trước, AI generate code sau. Tăng tính predictable và maintainability.</p>
+          </div>
+          <div class="objective-card">
+            <span class="obj-number">04</span>
+            <h4>Tránh sai lầm phổ biến</h4>
+            <p>Nhận biết 6 lỗi thường gặp và cách khắc phục để tăng productivity thực sự.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Target Audience -->
+      <div class="intro-audience animate-item">
+        <h3 class="subsection-title">👥 Đối tượng</h3>
+        <div class="audience-list">
+          <div class="audience-item">
+            <span class="audience-icon">👨‍💻</span>
+            <div>
+              <h4>Developers</h4>
+              <p>Muốn tăng productivity với AI tools nhưng chưa biết cách tận dụng hiệu quả</p>
+            </div>
+          </div>
+          <div class="audience-item">
+            <span class="audience-icon">👨‍💼</span>
+            <div>
+              <h4>Tech Leads / Managers</h4>
+              <p>Muốn standardize AI workflows trong team, đảm bảo code quality</p>
+            </div>
+          </div>
+          <div class="audience-item">
+            <span class="audience-icon">🆕</span>
+            <div>
+              <h4>AI Beginners</h4>
+              <p>Mới bắt đầu sử dụng AI trong coding, cần foundation vững chắc</p>
+            </div>
           </div>
         </div>
       </div>
@@ -1329,6 +1453,99 @@ AI sẽ:
           <p>Video tutorials và demos về BMAD Method.</p>
           <span class="resource-link">youtube.com →</span>
         </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Q&A Section -->
+  <section id="qa" class="section qa-section animate-section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-badge">Hỏi đáp</span>
+        <h2 class="section-title">Q&A <span class="gradient-text">Session</span></h2>
+        <p class="section-desc">Câu hỏi thường gặp và thảo luận</p>
+      </div>
+
+      <!-- Common Questions -->
+      <div class="qa-faq animate-item">
+        <h3 class="subsection-title">❓ Câu hỏi thường gặp</h3>
+
+        <div class="faq-list">
+          <div class="faq-item">
+            <div class="faq-question">
+              <span class="faq-icon">💬</span>
+              <h4>AI có thể thay thế developer không?</h4>
+            </div>
+            <div class="faq-answer">
+              <p><strong>Không.</strong> AI là công cụ hỗ trợ (Copilot), không phải thay thế. Developer vẫn cần sáng
+                tạo, tư duy, review code, và chịu trách nhiệm cuối cùng. AI giúp tăng tốc các task lặp đi lặp lại, không
+                phải thay thế brain của bạn.</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <div class="faq-question">
+              <span class="faq-icon">💬</span>
+              <h4>Nên bắt đầu với tool nào?</h4>
+            </div>
+            <div class="faq-answer">
+              <p><strong>Cursor IDE</strong> là lựa chọn tốt nhất cho beginners. Interface quen thuộc (VS Code-based),
+                học cách dùng @ references và Chat/Composer. Sau khi thành thạo, có thể upgrade lên Antigravity hoặc thử
+                Spec-Kit/BMAD workflows.</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <div class="faq-question">
+              <span class="faq-icon">💬</span>
+              <h4>SDD hay BMAD - nên chọn cái nào?</h4>
+            </div>
+            <div class="faq-answer">
+              <p><strong>Tùy context:</strong> Solo dev / prototypes → Spec-Kit (SDD). Team project / enterprise → BMAD.
+                Có thể kết hợp: Spec-Kit để viết spec nhanh, import vào BMAD để execute với full agents.</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <div class="faq-question">
+              <span class="faq-icon">💬</span>
+              <h4>Làm sao đo lường hiệu quả khi dùng AI?</h4>
+            </div>
+            <div class="faq-answer">
+              <p><strong>Metrics gợi ý:</strong> Development velocity (stories/sprint), Code review time, Bug rate,
+                First-time acceptance rate của AI-generated code. So sánh before/after áp dụng quy trình chuẩn hóa.</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <div class="faq-question">
+              <span class="faq-icon">💬</span>
+              <h4>AI có access được private code không?</h4>
+            </div>
+            <div class="faq-answer">
+              <p><strong>Quan trọng:</strong> Kiểm tra privacy policy của mỗi tool. Cursor có option "Privacy Mode",
+                Antigravity chạy local context. Không bao giờ paste API keys, secrets, hoặc sensitive data vào prompt.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Open Discussion -->
+      <div class="qa-discussion animate-item">
+        <div class="discussion-card">
+          <div class="discussion-icon">🎤</div>
+          <h3>Thảo luận mở</h3>
+          <p>Đây là thời gian để đặt câu hỏi, chia sẻ kinh nghiệm, và thảo luận về cách áp dụng AI vào workflow của bạn.
+          </p>
+          <div class="discussion-topics">
+            <span class="topic-tag">Cursor tips</span>
+            <span class="topic-tag">Prompt techniques</span>
+            <span class="topic-tag">Real-world examples</span>
+            <span class="topic-tag">Team adoption</span>
+            <span class="topic-tag">Security concerns</span>
+          </div>
+        </div>
       </div>
     </div>
   </section>
